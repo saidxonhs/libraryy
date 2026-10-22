@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Kelajak — zamonaviy onlayn kutubxona. Kitoblarni o‘qing, saqlang, izlang va premium kutubxonadan foydalaning."
+    />
+    <title>Kelajak | Zamonaviy Onlayn Kutubxona</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="topbar glass">
+      <div class="brand-wrap">
+        <div class="brand-mark">K</div>
+        <div class="brand-text">Kelajak</div>
+      </div>
+
+      <nav class="main-nav" aria-label="Asosiy navigatsiya">
+        <a href="#home" class="active">Home</a>
+        <a href="#books">Books</a>
+        <a href="#categories">Categories</a>
+        <a href="#free-books">Free Books</a>
+        <a href="#premium">Premium</a>
+        <a href="#favorites">Favorites</a>
+        <a href="#reading">My Reading</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Qidiruv" id="searchToggle">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.5 3a7.5 7.5 0 015.9 12.8l4.4 4.4 1.4-1.4-4.4-4.4A7.5 7.5 0 1110.5 3zm0 2a5.5 5.5 0 100 11 5.5 5.5 0 000-11z"/></svg>
+        </button>
+        <button class="user-pill" aria-label="Foydalanuvchi profili" id="profileButton">
+          <span class="avatar" id="headerAvatar">AS</span>
+          <span class="user-name" id="headerUserName">Aisha</span>
+        </button>
+        <button class="primary-btn premium-pill" id="premiumButton">PRO</button>
+      </div>
+
+      <button class="mobile-menu" aria-label="Mobil menyu" id="mobileMenuButton">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <section id="home" class="hero-shell">
+        <div class="hero-copy">
+          <span class="eyebrow">Premium elektron kutubxona</span>
+          <h1>Kelajagingizni bilim bilan yarating.</h1>
+          <p>
+            Minglab g‘oyalar, yangi bilimlar va cheksiz imkoniyatlar bir joyda.
+            Qiziqarli kitoblar, amaliy mahorat, va kuchli o‘qish tajribasi.
+          </p>
+
+          <div class="hero-actions">
+            <button class="primary-btn large-btn" id="browseBooksBtn">Kitoblarni o‘qish</button>
+            <button class="secondary-btn large-btn" id="premiumBtn">PRO bilan tanishish</button>
+          </div>
+
+          <div class="hero-meta">
+            <div>
+              <strong>150k+</strong>
+              <span>O‘quvchilar</span>
+            </div>
+            <div>
+              <strong>4.9/5</strong>
+              <span>Baholash</span>
+            </div>
+            <div>
+              <strong>24/7</strong>
+              <span>Qulaylik</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Kitoblar kompozitsiyasi">
+          <div class="book-illustration">
+            <div class="book-stack book-shadow"></div>
+            <div class="book-stack book-main book-primary">
+              <span>Deep Work</span>
+            </div>
+            <div class="book-stack book-secondary">
+              <span>Atomic</span>
+            </div>
+            <div class="book-stack book-tertiary">
+              <span>Python</span>
+            </div>
+            <div class="floating-badge badge-top">Top 10</div>
+            <div class="floating-badge badge-mid">+2.4k</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats-strip glass">
+        <div class="stat-item">
+          <strong data-stat="books">2500+</strong>
+          <span>Kitoblar</span>
+        </div>
+        <div class="stat-item">
+          <strong data-stat="genres">18</strong>
+          <span>Janrlar</span>
+        </div>
+        <div class="stat-item">
+          <strong data-stat="readers">150k</strong>
+          <span>Foydalanuvchilar</span>
+        </div>
+      </section>
+
+      <section id="featured" class="library-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Trend</span>
+            <h2>Eng mashhur kitoblar</h2>
+          </div>
+          <button class="text-btn" id="featuredMore">Barchasini ko‘rish</button>
+        </div>
+        <div id="featuredGrid" class="book-grid"></div>
+      </section>
+
+      <section id="new-books" class="library-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Yangi</span>
+            <h2>Yangi qo‘shilgan kitoblar</h2>
+          </div>
+        </div>
+        <div id="newBooksGrid" class="book-grid compact-grid"></div>
+      </section>
+
+      <section id="recommended" class="library-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Tavsiyalar</span>
+            <h2>Tavsiya etilgan kitoblar</h2>
+          </div>
+        </div>
+        <div id="recommendedGrid" class="book-grid compact-grid"></div>
+      </section>
+
+      <section id="categories" class="library-section category-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Tez tanlov</span>
+            <h2>Janrlar bo‘yicha tezkor tanlov</h2>
+          </div>
+        </div>
+        <div id="categoryChips" class="category-chips"></div>
+      </section>
+
+      <section id="free-books" class="library-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Bepul</span>
+            <h2>Bepul kitoblar</h2>
+          </div>
+        </div>
+        <div id="freeBooksGrid" class="book-grid compact-grid"></div>
+      </section>
+
+      <section id="premium" class="library-section premium-section">
+        <div class="premium-banner glass">
+          <div class="premium-copy">
+            <span class="eyebrow">PRO</span>
+            <h2>Kelajak PRO kutubxonasi</h2>
+            <p>
+              Amaliy bilim, maslahatlar, loyiha misollari va noyob materiallar — barchasi premium tarkibda.
+            </p>
+            <div class="premium-cards">
+              <div>
+                <strong>320+</strong>
+                <span>Premium kitob</span>
+              </div>
+              <div>
+                <strong>12k</strong>
+                <span>O‘quvchining foydasi</span>
+              </div>
+            </div>
+            <button class="primary-btn large-btn" id="viewPremiumCatalog">Katalogni ko‘rish</button>
+          </div>
+          <div class="premium-ladder">
+            <div class="tier tier-1">
+              <span>Starter</span>
+              <strong>$9/mo</strong>
+            </div>
+            <div class="tier tier-2 active">
+              <span>Premium</span>
+              <strong>$19/mo</strong>
+            </div>
+            <div class="tier tier-3">
+              <span>Elite</span>
+              <strong>$39/mo</strong>
+            </div>
+          </div>
+        </div>
+        <div id="premiumGrid" class="book-grid compact-grid"></div>
+      </section>
+
+      <section id="books" class="library-section browse-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Katalog</span>
+            <h2>Barcha kitoblar</h2>
+          </div>
+        </div>
+
+        <div class="filters glass">
+          <div class="filter-item input-wrap">
+            <label for="searchInput">Qidiruv</label>
+            <input id="searchInput" type="search" placeholder="Kitob, muallif, janr yoki kalit so‘z..." />
+          </div>
+
+          <div class="filter-item">
+            <label for="genreFilter">Janr</label>
+            <select id="genreFilter">
+              <option value="all">Hammasi</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="typeFilter">Tur</label>
+            <select id="typeFilter">
+              <option value="all">Hammasi</option>
+              <option value="free">Bepul</option>
+              <option value="premium">PRO</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label for="languageFilter">Til</label>
+            <select id="languageFilter">
+              <option value="all">Hammasi</option>
+              <option value="O‘zbek">O‘zbek</option>
+              <option value="Inglizcha">Inglizcha</option>
+              <option value="Ruscha">Ruscha</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="bookGrid" class="book-grid books-grid"></div>
+      </section>
+
+      <section id="reading" class="library-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Davom etish</span>
+            <h2>O‘qishni davom ettirish</h2>
+          </div>
+        </div>
+        <div id="continueGrid" class="continue-grid"></div>
+      </section>
+
+      <section id="favorites" class="library-section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow dark">Sizga yoqdi</span>
+            <h2>Sevimlilarim</h2>
+          </div>
+        </div>
+        <div id="favoritesGrid" class="book-grid compact-grid"></div>
+      </section>
+
+      <section id="about" class="library-section about-section glass">
+        <div class="about-copy">
+          <span class="eyebrow">Biz haqimizda</span>
+          <h2>Bilim, o‘sish va zamonaviy ta’lim uchun yaratilgan kutubxona.</h2>
+          <p>
+            Kelajak — foydalanuvchilarga bilimni qulay, qiziqarli va ta’sirli tarzda yetkazib berish uchun yaratilgan platforma.
+            Kitoblarni, mahoratni va o‘qishni bir umri davom etadigan tajribaga aylantiramiz.
+          </p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-item">
+            <strong>24/7</strong>
+            <span>O‘qish imkoniyati</span>
+          </div>
+          <div class="highlight-item">
+            <strong>20+</strong>
+            <span>Faol kitoblar</span>
+          </div>
+          <div class="highlight-item">
+            <strong>100%</strong>
+            <span>Qulay va moslashuvchan UI</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <div class="brand-wrap">
+          <div class="brand-mark">K</div>
+          <div class="brand-text">Kelajak</div>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#books">Books</a>
+        <a href="#premium">Premium</a>
+        <a href="#about">About</a>
+      </div>
+      <span>© 2026 Kelajak Library</span>
+    </footer>
+
+    <div id="bookModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal="true"></div>
+      <div class="modal-panel glass">
+        <button class="close-modal" aria-label="Yopish" data-close-modal="true">×</button>
+        <div class="modal-body" id="modalBody"></div>
+      </div>
+    </div>
+
+    <div id="readerModal" class="reader-modal hidden" aria-hidden="true">
+      <div class="reader-shell glass">
+        <div class="reader-header">
+          <div>
+            <span class="eyebrow dark" id="readerBookTag">Kitob</span>
+            <h3 id="readerBookTitle">Kitob nomi</h3>
+          </div>
+
+          <div class="reader-toolbar">
+            <button class="icon-btn small" id="readerThemeToggle" title="Tema">◐</button>
+            <button class="icon-btn small" id="readerCopyBtn" title="Tanlangan matnni nusxalash">⧉</button>
+            <button class="icon-btn small" id="readerBookmarkBtn" title="Xatcho‘p">☆</button>
+            <button class="close-modal reader-close" data-close-reader="true">×</button>
+          </div>
+        </div>
+
+        <div class="reader-layout">
+          <aside class="reader-sidebar">
+            <div class="reader-panel">
+              <h4>Mundarija</h4>
+              <ul id="chapterListSidebar"></ul>
+            </div>
+
+            <div class="reader-panel">
+              <h4>Qidiruv</h4>
+              <input id="readerSearchInput" type="search" placeholder="Matnni qidiring..." />
+              <div id="readerSearchStatus" class="search-status">Matn ichida qidiruv</div>
+            </div>
+
+            <div class="reader-panel">
+              <h4>Shaxsiy qayd</h4>
+              <textarea id="readerNotes" rows="6" placeholder="Bu joyga qoidalar yoki muhim fikrlarni yozing..."></textarea>
+            </div>
+          </aside>
+
+          <main class="reader-main">
+            <div class="reader-controls">
+              <div class="font-scale">
+                <button id="decreaseFont">A−</button>
+                <button id="increaseFont">A+</button>
+              </div>
+              <div class="theme-switcher">
+                <button class="theme-btn active" data-theme="default">Light</button>
+                <button class="theme-btn" data-theme="sepia">Sepia</button>
+                <button class="theme-btn" data-theme="dark">Night</button>
+              </div>
+            </div>
+
+            <article id="readerText" class="reader-content"></article>
+          </main>
+        </div>
+
+        <div class="reader-footer">
+          <div class="progress-block">
+            <span>O‘qish jarayoni</span>
+            <div class="progress-line"><span id="readerProgressBar"></span></div>
+          </div>
+          <div class="reader-nav">
+            <button class="secondary-btn" id="prevChapterBtn">Oldingi bob</button>
+            <button class="primary-btn" id="nextChapterBtn">Keyingi bob</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="authModal" class="modal auth-modal">
+      <div class="modal-backdrop" data-close-auth="true"></div>
+      <div class="modal-panel glass auth-panel">
+        <button class="close-modal" aria-label="Yopish" data-close-auth="true">×</button>
+        <div class="auth-header">
+          <span class="eyebrow">Kelajak</span>
+          <h2>Kutubxonaga kirish</h2>
+        </div>
+
+        <div class="auth-provider">
+          <button id="googleAuthBtn" class="google-btn">
+            <span class="google-mark">G</span>
+            Google bilan kirish
+          </button>
+        </div>
+
+        <div class="divider"><span>yoki</span></div>
+
+        <div class="auth-form">
+          <label for="googleEmailInput">Google akkaunt</label>
+          <input id="googleEmailInput" type="email" placeholder="yourname@gmail.com" value="aisha.kelajak@gmail.com" />
+          <small>Google akkaunt email kiritilgach, tasdiqlash kodi avtomatik yaratiladi.</small>
+
+          <div id="authCodeBox" class="auth-code-box hidden">
+            <label for="authCodeInput">Tasdiqlash kodi</label>
+            <div class="code-display" id="generatedCodeDisplay">-</div>
+            <input id="authCodeInput" type="text" inputmode="numeric" maxlength="6" placeholder="123456" />
+          </div>
+
+          <div id="authMessage" class="auth-message"></div>
+          <button id="loginConfirmBtn" class="primary-btn auth-submit">Kirish</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="profileModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-profile="true"></div>
+      <div class="modal-panel glass profile-panel">
+        <button class="close-modal" aria-label="Yopish" data-close-profile="true">×</button>
+
+        <div class="profile-header">
+          <div class="profile-avatar-wrap">
+            <img id="profileAvatarPreview" class="profile-avatar" alt="Profile image" src="" />
+            <label class="avatar-upload" for="profileImageInput">Rasm qo‘shish</label>
+            <input id="profileImageInput" type="file" accept="image/*" hidden />
+          </div>
+          <div>
+            <span class="eyebrow">Profil</span>
+            <h2 id="profileNameHeading">Aisha</h2>
+          </div>
+        </div>
+
+        <div class="profile-form">
+          <label for="profileNameInput">Ism</label>
+          <input id="profileNameInput" type="text" value="Aisha" />
+          <label for="profileEmailInput">Email</label>
+          <input id="profileEmailInput" type="email" value="aisha.kelajak@gmail.com" />
+          <button id="saveProfileBtn" class="primary-btn">Saqlash</button>
+        </div>
+
+        <div class="profile-plan-box">
+          <div class="plan-header-row">
+            <h3>PRO tariflari</h3>
+            <span id="currentPlanBadge" class="type-badge premium">Starter</span>
+          </div>
+
+          <div class="plan-grid">
+            <div class="plan-card">
+              <h4>Starter</h4>
+              <div class="price">$9<span>/oy</span></div>
+              <ul>
+                <li>5 premium kitob</li>
+                <li>Mahalliy kutubxona</li>
+                <li>Kunlik xabarlar</li>
+              </ul>
+              <button class="secondary-btn buy-plan-btn" data-plan="starter">Sotib olish</button>
+            </div>
+
+            <div class="plan-card featured-plan">
+              <span class="plan-popular">Mashhur</span>
+              <h4>Premium</h4>
+              <div class="price">$19<span>/oy</span></div>
+              <ul>
+                <li>80+ premium kitob</li>
+                <li>Maxsus kurslar</li>
+                <li>O‘qish statistikasi</li>
+              </ul>
+              <button class="primary-btn buy-plan-btn" data-plan="premium">Sotib olish</button>
+            </div>
+
+            <div class="plan-card">
+              <h4>Elite</h4>
+              <div class="price">$39<span>/oy</span></div>
+              <ul>
+                <li>Barcha premium imkoniyatlar</li>
+                <li>1:1 maslahat</li>
+                <li>Oldindan ko‘rilgan materiallar</li>
+              </ul>
+              <button class="secondary-btn buy-plan-btn" data-plan="elite">Sotib olish</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="purchaseMessage" class="purchase-message"></div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
